@@ -1,6 +1,5 @@
 package com.bcp.best_travel.domain.entities;
 
-import com.bcp.best_travel.util.AeroLine;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,25 +8,20 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-
-@Entity(name = "fly")
+@Entity(name="hotel")
 @NoArgsConstructor
 @Data
 @AllArgsConstructor
 @Builder
-public class FlyEntity implements Serializable {
+public class HotelEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double originLat;
-    private Double originLng;
-    private Double destinyLat;
-    private Double destinyLng;
-    @Column(length=20)
-    private String originName;
-    @Column(length=20)
-    private String destinyName;
+    @Column(length = 50)
+    private String name;
+    @Column(length = 50)
+    private String address;
+    private Integer rating;
     private BigDecimal price;
-    @Enumerated(EnumType.STRING)
-    private AeroLine aeroLine;
+
 }
